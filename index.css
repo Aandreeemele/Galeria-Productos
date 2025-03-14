@@ -1,97 +1,99 @@
 body {
-    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #021a2e;
 }
 
-.contenedor-productos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, auto);
-    gap: px; 
-    justify-items: center;
-    width: 50rem;
-    margin-top: 10px;
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 1px;
+    overflow-y: auto;  
+    max-height: 100vh; 
 }
 
 .producto {
-    width: 100;
-    max-width: 350px;
-    border: 1px solid #e1e1e1;
-    border-radius: 12px; 
-    padding: 15px; 
+    background-color: white;
+    border-radius: 12px;  
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 180px;  
+    overflow: hidden;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-color: #ffffff;
-    background-image: linear-gradient(135deg, #f5f5f5 25%, transparent 25%), linear-gradient(225deg, #f5f5f5 25%, transparent 25%);
-    background-size: 8px 8px; 
-    background-position: 0 0, 4px 4px; 
+    padding: 70px; 
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.9;  
 }
 
 .producto:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);  
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    opacity: 1; 
 }
 
 .producto img {
-    width: 40%; 
+    width: 65%; 
     height: auto;
-    border-radius: 8px; 
-    margin-bottom: 10px;
-    transition: transform 0.2s ease;
+    border-radius: 8px;
+    border-bottom: 2px solid #f1f1f1;
+    object-fit: cover;
+    transition: transform 0.3s ease;  
 }
 
-.producto img:hover {
-    transform: scale(1.08); 
+.producto:hover img {
+    transform: scale(1.1); 
 }
 
 .producto h2 {
-    font-size: 21px; 
-    margin: 8px 0;
+    font-size: 18px;
     color: #333;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: color 0.3s ease;
 }
 
-.producto h2:hover {
-    color: #007bff;  
+.producto:hover h2 {
+    color: blue;  
 }
 
 .precio-original {
-    font-size: 20px; 
-    color: #999;
     text-decoration: line-through;
-    margin: 5px 0;
+    color: #888;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .precio-descuento {
-    font-size: 15px; 
-    color: #27ae60;
+    color: #d9534f;
+    font-size: 12px;
     font-weight: bold;
-    margin: 8px 0;
+    margin-top: 5px;
 }
 
 .descuento {
-    background-color: #ff4757;
+    background-color: #d9534f;
     color: white;
-    padding: 4px 8px; 
-    font-size: 20px; 
-    font-weight: bold;
-    border-radius: 4px; 
-    margin-top: 8px;
-    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;  
+    font-size: 14px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transform: rotate(10deg);
+    animation: bounce 1s infinite alternate; 
 }
-.producto p:last-child {
-    font-size: 50px; 
-    color: #777;
-    margin-top: 8px;
+
+@keyframes bounce {
+    0% {
+        transform: rotate(10deg) translateY(0);
+    }
+    100% {
+        transform: rotate(10deg) translateY(-5px);
+    }
 }
-.producto .btn:hover {
-    background-color: #0056b3;
-} 
